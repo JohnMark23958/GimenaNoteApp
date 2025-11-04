@@ -50,4 +50,12 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
     fun delete(note: Note) = viewModelScope.launch {
         noteDao.deleteNote(note)
     }
+
+    // --- ADDED FUNCTION ---
+    /**
+     * Fetches a single note by its ID from the database.
+     */
+    suspend fun getNoteById(id: Int): Note? {
+        return noteDao.getNoteById(id)
+    }
 }
